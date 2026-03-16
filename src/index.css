@@ -3,3 +3,15 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.button-blue {
+  @apply bg-blue-400 sm:px-6 py-2 px-2 text-sm sm:text-base rounded-xl text-white cursor-pointer;
+}
+
+.form-input {
+  @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900; 
+}
+
+.form-label {
+  @apply mb-2 block text-sm font-medium text-slate-700;
+}

@@ -20,7 +20,7 @@ export default function LoginPage() {
         dispatch(login(user));
         navigate("/dashboard");
     }
-    
+
     return (
         <>
             <div className="relative min-h-screen">
@@ -49,11 +49,11 @@ export default function LoginPage() {
                                 placeholder="Enter your email"
                                 name="email"
                                 required
-                                className="w-full rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 outline-none transition focus:border-indigo-400/60 focus:ring-4 focus:ring-indigo-500/15"
+                                className="form-input"
                             />
                         </div>
 
-                        <button className="w-full rounded-2xl  py-3 font-semibold bg-[#90dad7] text-white cursor-pointer shadow-lg focus:outline-none focus:ring-4 focus:ring-cyan-400/20 active:brightness-95">
+                        <button className="w-full rounded-2xl py-3 font-semibold bg-[#90dad7] text-[#00393b] cursor-pointer shadow-lg">
                             Login
                         </button>
                     </form>
