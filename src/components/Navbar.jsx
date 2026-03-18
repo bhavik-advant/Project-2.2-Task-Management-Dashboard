@@ -1,20 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar({ onMenuClick }) {
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    function handleLogout(){
+    function handleLogout() {
         dispatch(logout());
         navigate('/login')
     }
 
     return (
         <>
-            <div className="bg-white p-4 flex w-full items-center justify-between gap-4 border-b-2 border-gray-300">
+            <div className="p-4 flex w-full items-center justify-between gap-4 border-b-2 h-18 border-gray-200 dark:border-gray-400">
                 <div className="flex min-w-0 items-center gap-3">
                     <button
                         type="button"
@@ -30,15 +31,20 @@ export default function Navbar({ onMenuClick }) {
                             />
                         </svg>
                     </button>
-                    <input type="text" className="lg:min-w-[550px] w-[180px] sm:w-[300px] bg-gray-100 rounded px-4 py-2" placeholder="Search.." />
+                    <input type="text" className="lg:min-w-[550px] w-[180px] sm:w-[300px] bg-gray-100 rounded px-4 py-2 dark:text-gray-800" placeholder="Search.." />
                 </div>
-                <div className="shrink-0">
-                    {isAuthenticated ? (
-                        <button className="button-blue" onClick={handleLogout}>Logout</button>
-                    ) : (
-                        <button className="button-blue">Login</button>
-                    )
-                    }
+                <div className="flex items-center">
+                    <div className="mr-2">
+                        <ThemeToggle />
+                    </div>
+                    <div>
+                        {isAuthenticated ? (
+                            <button className="button-blue" onClick={handleLogout}>Logout</button>
+                        ) : (
+                            <button className="button-blue">Login</button>
+                        )
+                        }
+                    </div>
                 </div>
             </div>
         </>

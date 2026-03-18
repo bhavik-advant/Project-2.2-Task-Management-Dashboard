@@ -2,6 +2,7 @@ import { useState } from "react"
 import ListView from "./ListView";
 import KanbanBoardView from "./KanbanBoardView";
 import NewTaskForm from "./NewTaskForm";
+import { useSelector } from "react-redux";
 
 export default function Tasks() {
 
@@ -17,16 +18,23 @@ export default function Tasks() {
         setFormOpen(false);
     }
 
+    const selectedProject = useSelector(
+        (state) => state.project.selectedProject
+    );
+
+    const tasks = useSelector((state)=> state.task.tasks);
+    const selectedProjectTasks = tasks.filter((task)=> task.project == selectedProject);
+
     return (
         <div>
             {formOpen && <NewTaskForm onClose={handleCloseForm} />}
-            <div className="p-4 border-2 border-slate-300 rounded-2xl grid sm:grid-cols-2 grid-cols-1 justify-between ">
+            <div className="p-4 border-2 border-slate-300 dark:border-gray-400 rounded-2xl grid sm:grid-cols-2 grid-cols-1 justify-between ">
                 <div>
                     <h1 className="text-4xl font-semibold">Tasks</h1>
                 </div>
                 <div className="flex sm:justify-end pt-4 sm:pt-0 ">
-                    <div>
-                        <select name="view" id="view" className="bg-slate-200 rounded-xl px-4 py-2" onChange={handleViewChange}>
+                    <div >
+                        <select name="view" id="view" className="bg-slate-200 dark:bg-slate-600 rounded-xl px-4 py-2" onChange={handleViewChange}>
                             <option value="List-view" defaultValue={view}>List View</option>
                             <option value="Board-view">Board View</option>
                         </select>
@@ -37,10 +45,9 @@ export default function Tasks() {
                 </div>
             </div>
             <main>
-                {view === "List-view" && <ListView /> }
-                {view === "Board-view" && <KanbanBoardView />}
+                {view === "List-view" && <ListView tasks={selectedProjectTasks}/> }
+                {view === "Board-view" && <KanbanBoardView tasks={selectedProjectTasks}/>}
             </main>
         </div>
     )
-
 }

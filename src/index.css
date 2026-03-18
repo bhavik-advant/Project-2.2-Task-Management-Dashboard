@@ -1,17 +1,26 @@
 @import "tailwindcss";
-
-body {
-  font-family: "Inter", sans-serif;
+@layer {
+  @import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 .button-blue {
   @apply bg-blue-400 sm:px-6 py-2 px-2 text-sm sm:text-base rounded-xl text-white cursor-pointer;
 }
 
 .form-input {
-  @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900; 
+  @apply w-full rounded-2xl border border-slate-200 bg-white dark:bg-slate-200 px-4 py-3 text-slate-900; 
 }
 
 .form-label {
-  @apply mb-2 block text-sm font-medium text-slate-700;
+  @apply mb-2 block text-sm font-medium text-slate-700 dark:text-slate-100;
+}
+
+.button-edit{
+  @apply p-1 text-xl bg-green-300 rounded-lg flex justify-center cursor-pointer dark:bg-green-600/50;
+}
+
+.button-delete{
+  @apply p-1 text-xl bg-red-300 rounded-lg flex justify-center cursor-pointer dark:bg-red-500/80;
 }

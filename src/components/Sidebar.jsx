@@ -14,20 +14,21 @@ export default function Sidebar({ isOpen, onClose }) {
     return (
         <>
             {formOpen && <NewProjectForm onClose={handleCloseForm}/>}
-            <aside className="hidden min-h-screen w-64 flex-col border-r-2 border-gray-200 lg:flex">
+            <aside className="hidden min-h-screen w-64 flex-col border-r-2 border-gray-200 dark:border-gray-400 lg:flex">
+                <div className="border-b-2 border-gray-200 dark:border-gray-400 h-18">
                 <h1 className="h-20 p-4 text-2xl font-semibold">Tasks Dashboard</h1>
+                </div>
 
                 <div className="min-h-0 flex-1 overflow-auto px-2">
                     <ProjectList />
                 </div>
 
-                <div className="mt-auto border-t border-gray-200 p-4">
+                <div className="mt-auto border-t border-gray-200 dark:border-gray-400 p-4">
                     <button type="button" className="button-blue w-full" onClick={handleClick}>
                         + Add New Project
                     </button>
                 </div>
             </aside>
-
             <div
                 className={`fixed inset-0 z-50 lg:hidden ${isOpen ? "" : "pointer-events-none"}`}
             >
@@ -36,7 +37,7 @@ export default function Sidebar({ isOpen, onClose }) {
                     onClick={onClose}
                 />
                 <aside
-                    className={`absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col bg-gray-100 border-r-2 border-gray-100 shadow-2xl transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+                    className={`absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col bg-gray-100 border-r-2 border-gray-100 dark:border-gray-400 shadow-2xl transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
                     role="dialog"
                 >
                     <div className="flex items-center justify-between p-4">
@@ -48,7 +49,7 @@ export default function Sidebar({ isOpen, onClose }) {
                             className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-500 text-slate-100"
                             aria-label="Close sidebar"
                         >
-                            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
                                 <path
                                     d="M6 6l12 12M18 6L6 18"
                                     stroke="currentColor"

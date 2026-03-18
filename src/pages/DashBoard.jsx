@@ -8,7 +8,7 @@ export default function DashBoardPage() {
 
     return (
         <>
-            <div className="min-h-screen flex">
+            <div className="min-h-screen flex dark:bg-gray-800 dark:text-white">
                 <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
                 <div className="flex min-w-0 flex-1 flex-col">
                     <Navbar onMenuClick={() => setIsSidebarOpen((v) => !v)} />
@@ -19,5 +19,4 @@ export default function DashBoardPage() {
             </div>
         </>
     )
-    
 }

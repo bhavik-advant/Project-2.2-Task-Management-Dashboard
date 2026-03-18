@@ -1,37 +1,35 @@
 import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { addProject } from "../../store/slices/projectSlice";
 
 export default function NewProjectForm({ onClose }) {
     const dialogRef = useRef(null);
 
     useEffect(() => {
         if (!dialogRef.current) return;
-        if (typeof dialogRef.current.showModal === "function") {
+        if (dialogRef.current?.showModal) {
             dialogRef.current.showModal();
         }
-
         return () => {
             try {
                 dialogRef.current?.close();
-            } catch {
-
-            }
+            } catch { }
         };
     }, []);
 
+    const dispatch = useDispatch();
+
     function handleSubmit(event) {
         event.preventDefault();
-
         const fd = new FormData(event.target);
-
         const title = fd.get("title")
-
         const project = {
+            id : Date.now(),
             title,
-    
+            createdAT : Date.now(),
         }
-        console.log(project);
+        dispatch(addProject(project))
         onClose?.();
-
     }
     return (
         <dialog
@@ -41,11 +39,10 @@ export default function NewProjectForm({ onClose }) {
                 e.preventDefault();
                 onClose?.();
             }}
-            className="fixed left-1/2 top-1/2 min-w-[30vw] -translate-x-1/2 -translate-y-1/2 rounded-3xl p-0 backdrop:bg-black/50 max-h-[85vh] overflow-auto"
-        >
-            <div className="rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+            className="fixed left-1/2 top-1/2 w-full lg:w-[30vw] -translate-x-1/2 -translate-y-1/2 rounded-3xl p-0 backdrop:bg-black/50 max-h-[85vh] overflow-auto" >
+            <div className="rounded-3xl bg-white dark:bg-gray-700 p-6 shadow-2xl sm:p-8">
                 <div className="mb-6 flex items-center justify-between gap-4">
-                    <h2 className="text-xl font-semibold text-slate-900">New Project</h2>
+                    <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">New Project</h2>
                     <button
                         type="button"
                         className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200"
