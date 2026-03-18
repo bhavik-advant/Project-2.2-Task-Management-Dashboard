@@ -49,7 +49,7 @@ export default function EditTaskForm({ onClose , selectedItemId }) {
                 e.preventDefault();
                 onClose?.();
             }}
-            className="fixed left-1/2 top-1/2 w-full xl:w-[30vw] -translate-x-1/2 -translate-y-1/2 rounded-3xl p-0 backdrop:bg-black/50 max-h-[85vh] overflow-auto">
+            className="fixed left-1/2 top-1/2 w-full lg:w-[40vw] -translate-x-1/2 -translate-y-1/2 rounded-3xl p-0 backdrop:bg-black/50 max-h-[85vh] overflow-auto">
             <div className="rounded-3xl bg-white dark:bg-gray-700 p-6 shadow-2xl sm:p-8">
                 <div className="mb-6 flex items-center justify-between gap-4">
                     <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Edit Task</h2>

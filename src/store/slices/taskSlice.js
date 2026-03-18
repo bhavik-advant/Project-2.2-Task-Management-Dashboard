@@ -44,9 +44,22 @@ const taskSlice = createSlice({
             const id = action.payload;
             state.tasks = state.tasks.filter((task) => task.id !== id )
             localStorage.setItem("tasks", JSON.stringify(state.tasks));
+        },
+        updateTaskStatus: (state, action) => {
+            const { taskId, status } = action.payload;
+        
+            const index = state.tasks.findIndex(t => t.id === taskId);
+        
+            if (index !== -1) {
+                state.tasks[index] = {
+                    ...state.tasks[index],
+                    status: status
+                };
+            }
+            localStorage.setItem("tasks", JSON.stringify(state.tasks));
         }
     }
 })
 
-export const { addTask , UpdateTask , deleteTask , deleteTaskByProject } = taskSlice.actions;
+export const { addTask , UpdateTask , deleteTask , deleteTaskByProject ,updateTaskStatus } = taskSlice.actions;
 export default taskSlice.reducer;

@@ -15,8 +15,8 @@ export default function Sidebar({ isOpen, onClose }) {
         <>
             {formOpen && <NewProjectForm onClose={handleCloseForm}/>}
             <aside className="hidden min-h-screen w-64 flex-col border-r-2 border-gray-200 dark:border-gray-400 lg:flex">
-                <div className="border-b-2 border-gray-200 dark:border-gray-400 h-18">
-                <h1 className="h-20 p-4 text-2xl font-semibold">Tasks Dashboard</h1>
+                <div className="border-b-2 border-gray-200 dark:border-gray-400 h-18 ">
+                <h1 className="p-4 text-xl font-semibold">Tasks Dashboard</h1>
                 </div>
 
                 <div className="min-h-0 flex-1 overflow-auto px-2">
