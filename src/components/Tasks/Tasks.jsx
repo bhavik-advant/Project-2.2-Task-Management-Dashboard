@@ -113,8 +113,12 @@ export default function Tasks() {
                         </div>
                     </div>
                 </div>
-                {view === "List-view" && <ListView tasks={finalTasks}/> }
-                {view === "Board-view" && <KanbanBoardView tasks={finalTasks}/>}
+                {finalTasks.length > 0 ? 
+                (<>
+                {view === "List-view" && <ListView tasks={finalTasks}/>} 
+                {view === "Board-view" && <KanbanBoardView tasks={finalTasks}/>}</>)
+                    : <div className="text-2xl flex justify-center ">No Tasks Found ,Please Add New Task</div>
+            }
             </main>
         </div>
     )
