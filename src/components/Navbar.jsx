@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import { setSearchQuery } from "../store/slices/searchSlice";
 
 export default function Navbar({ onMenuClick }) {
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -13,9 +14,14 @@ export default function Navbar({ onMenuClick }) {
         navigate('/login')
     }
 
+
+    function handleSearch(e) {
+        dispatch(setSearchQuery(e.target.value));
+    }
+
     return (
         <>
-            <div className="p-4 flex w-full items-center justify-between gap-4 border-b-2 h-18 border-gray-200 dark:border-gray-400">
+            <div className="p-4 sticky top-0 backdrop-blur-md flex w-full items-center justify-between gap-4 border-b-2 h-18 border-gray-200 dark:border-gray-400">
                 <div className="flex min-w-0 items-center gap-3">
                     <button
                         type="button"
@@ -31,10 +37,10 @@ export default function Navbar({ onMenuClick }) {
                             />
                         </svg>
                     </button>
-                    <input type="text" className="lg:min-w-[550px] w-[180px] sm:w-[300px] bg-gray-100 rounded px-4 py-2 dark:text-gray-800" placeholder="Search.." />
+                    <input type="text" className="lg:min-w-[550px] w-[180px] sm:w-[300px] bg-gray-100 rounded px-4 py-2 dark:text-gray-800" placeholder="Search.." onChange={handleSearch} />
                 </div>
-                <div className="flex items-center">
-                    <div className="mr-2">
+                <div className="flex items-center gap-4">
+                    <div >
                         <ThemeToggle />
                     </div>
                     <div>

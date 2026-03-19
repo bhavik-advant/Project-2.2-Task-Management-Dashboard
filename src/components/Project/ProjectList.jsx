@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProject, setSelectedProject } from "../../store/slices/projectSlice";
 import { MdDelete } from "react-icons/md";
 import { deleteTaskByProject } from "../../store/slices/taskSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectList() {
-    const projects = useSelector((state) => state.project.projects)
+    const projects = useSelector((state) => state.project.projects);
+    const navigate = useNavigate()
 
     const selectedProject = useSelector(
         (state) => state.project.selectedProject
@@ -14,6 +16,8 @@ export default function ProjectList() {
 
     function handleClick(id) {
         dispatch(setSelectedProject(id));
+        navigate('/dashboard');
+
     }
     function handleDelete(id) {
         dispatch(deleteProject(id));

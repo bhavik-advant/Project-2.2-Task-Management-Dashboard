@@ -14,7 +14,7 @@ export default function Sidebar({ isOpen, onClose }) {
     return (
         <>
             {formOpen && <NewProjectForm onClose={handleCloseForm}/>}
-            <aside className="hidden min-h-screen w-64 flex-col border-r-2 border-gray-200 dark:border-gray-400 lg:flex">
+            <aside className="hidden min-h-screen sticky top-0 h-screen w-64 flex-col border-r-2 border-gray-200 dark:border-gray-400 lg:flex">
                 <div className="border-b-2 border-gray-200 dark:border-gray-400 h-18 ">
                 <h1 className="p-4 text-xl font-semibold">Tasks Dashboard</h1>
                 </div>
@@ -37,7 +37,7 @@ export default function Sidebar({ isOpen, onClose }) {
                     onClick={onClose}
                 />
                 <aside
-                    className={`absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col bg-gray-100 border-r-2 border-gray-100 dark:border-gray-400 shadow-2xl transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+                    className={`absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col bg-gray-100 dark:bg-gray-800 border-r-2 border-gray-100 dark:border-gray-400 shadow-2xl transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
                     role="dialog"
                 >
                     <div className="flex items-center justify-between p-4">

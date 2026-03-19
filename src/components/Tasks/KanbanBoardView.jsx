@@ -32,13 +32,15 @@ export default function KanbanBoardView({ tasks }) {
     return (
         <DndContext collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
-
-                <KanbanViewItems id="todo" title="Todo" tasks={todoTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<FaRegCircle /> }/>
-
-                <KanbanViewItems id="in-progress" title="In Progress" tasks={inProgressTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<GrInProgress />}/>
-
-                <KanbanViewItems id="completed" title="Completed" tasks={completedTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<FaCheckCircle />}/>
-
+                {todoTask.length > 0 &&
+                    <KanbanViewItems id="todo" title="Todo" tasks={todoTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<FaRegCircle />} />
+                }
+                {inProgressTask.length > 0 &&
+                    <KanbanViewItems id="in-progress" title="In Progress" tasks={inProgressTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<GrInProgress />} />
+                }
+                {completedTask.length > 0 &&
+                    <KanbanViewItems id="completed" title="Completed" tasks={completedTask} bg="bg-slate-400 dark:bg-blue-100/50" icon={<FaCheckCircle />} />
+                }
             </div>
         </DndContext>
     );

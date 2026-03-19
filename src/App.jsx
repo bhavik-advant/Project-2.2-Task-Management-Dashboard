@@ -4,6 +4,8 @@ import './App.css'
 import LoginPage from './pages/Login'
 import { useSelector } from 'react-redux'
 import DashBoardPage from './pages/DashBoard';
+import TaskDetailsPage from './pages/TaskDetailsPage';
+import RootLayout from './pages/RootLayout';
 
 function App() {
 
@@ -26,7 +28,11 @@ function App() {
       children : [
         {
           path : '/dashboard',
-          element : <DashBoardPage />,
+          element : <RootLayout><DashBoardPage /></RootLayout>,
+        },
+        {
+          path : '/dashboard/:id',
+          element : <RootLayout><TaskDetailsPage /></RootLayout>
         }
       ]
     }

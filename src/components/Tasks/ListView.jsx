@@ -29,9 +29,15 @@ export default function ListView({ tasks }) {
     const completedTask = tasks.filter((task) => task.status === "completed")
     return (
         <DndContext collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
-            <ListViewItems id="in-progress" title="InProgress" tasks={inProgressTask}  icon={<GrInProgress />}/>
-            <ListViewItems id="todo" title="Todo" tasks={todoTask} icon={<FaRegCircle />}/>
-            <ListViewItems id="completed" title="Completed" tasks={completedTask} icon={<FaCheckCircle />}/>
+            {inProgressTask.length > 0 && 
+                <ListViewItems id="in-progress" title="InProgress" tasks={inProgressTask}  icon={<GrInProgress />}/>
+            }
+            {todoTask.length > 0 && 
+                <ListViewItems id="todo" title="Todo" tasks={todoTask} icon={<FaRegCircle />}/>
+            }
+            {completedTask.length > 0 && 
+                <ListViewItems id="completed" title="Completed" tasks={completedTask} icon={<FaCheckCircle />}/>
+            }
         </DndContext>
     )
 }
