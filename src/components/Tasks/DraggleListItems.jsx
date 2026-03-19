@@ -17,7 +17,7 @@ export default function DraggableListItem({ item, handleEdit, handleDelete }) {
     };
 
     function handleTaskClick(id){
-        navigate("/dashboard/" + id)       
+        navigate("/" + id)       
     }
 
     return (

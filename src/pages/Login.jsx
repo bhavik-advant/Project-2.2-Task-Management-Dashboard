@@ -18,7 +18,7 @@ export default function LoginPage() {
             email
         }
         dispatch(login(user));
-        navigate("/dashboard");
+        navigate("/");
     }
 
     return (

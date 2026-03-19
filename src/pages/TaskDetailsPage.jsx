@@ -13,7 +13,7 @@ export default function TaskDetailsPage() {
     const task = tasks.filter((task) => task.id == id);
 
     function handleBackButton(){
-        navigate('/dashboard')
+        navigate('/')
     }
 
     return (

@@ -18,7 +18,7 @@ export default function DraggableTaskItem({ item, handleEdit, handleDelete }) {
         transform: CSS.Translate.toString(transform),
     };
     function handleTaskClick(id) {
-        navigate("/dashboard/" + id)
+        navigate("/" + id)
     }
 
     return (

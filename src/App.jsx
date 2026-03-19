@@ -27,11 +27,11 @@ function App() {
       element : <ProtectedLayout />,
       children : [
         {
-          path : '/dashboard',
+          path : '/',
           element : <RootLayout><DashBoardPage /></RootLayout>,
         },
         {
-          path : '/dashboard/:id',
+          path : '/:id',
           element : <RootLayout><TaskDetailsPage /></RootLayout>
         }
       ]

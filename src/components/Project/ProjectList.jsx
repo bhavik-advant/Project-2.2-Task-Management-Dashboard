@@ -16,7 +16,7 @@ export default function ProjectList() {
 
     function handleClick(id) {
         dispatch(setSelectedProject(id));
-        navigate('/dashboard');
+        navigate('/');
 
     }
     function handleDelete(id) {
