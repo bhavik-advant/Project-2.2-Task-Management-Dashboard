@@ -14,7 +14,6 @@ export default function Navbar({ onMenuClick }) {
         navigate('/login')
     }
 
-
     function handleSearch(e) {
         dispatch(setSearchQuery(e.target.value));
     }
