@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from "../components/navbar";
 import Sidebar from "../components/Sidebar";
+import Navbar from "../components/navbar";
 
 export default function RootLayout({children}){
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
